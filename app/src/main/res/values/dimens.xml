@@ -1,0 +1,12 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <!--启动页-->
+    <dimen name="splash_top">80dp</dimen>
+    <dimen name="splash_text">25dp</dimen>
+
+    <!--通用字体大小-->
+    <dimen name="large_text">22sp</dimen>
+    <dimen name="medium_text">16sp</dimen>
+    <dimen name="small_text">13sp</dimen>
+
+</resources>

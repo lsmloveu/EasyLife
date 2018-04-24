@@ -1,0 +1,44 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="BaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowAnimationStyle">@style/AnimationActivity</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="AppTheme" parent="BaseTheme" />
+    <style name="AnimationActivity" parent="@android:style/Animation.Activity" >
+        <!--A 启动 B 时，A 从屏幕上消失，这时执行的是A的android:activityOpenExitAnimation-->
+        <item name="android:activityOpenEnterAnimation">@anim/scale_translate</item>
+        <!--A 启动 B 时，B 出现在屏幕上，这时执行的是B的android:activityOpenEnterAnimation-->
+        <item name="android:activityOpenExitAnimation">@anim/my_alpha_action</item>
+        <!--从 B 返回A时，B从屏幕上消失，这时执行的是B的android:activityCloseExitAnimation-->
+        <item name="android:activityCloseEnterAnimation">@anim/zoom_enter</item>
+        <!--从 B 返回A时，A 出现在屏幕上，这时执行的是A的android:activityCloseEnterAnimation-->
+        <item name="android:activityCloseExitAnimation">@anim/zoom_exit</item>
+    </style>
+
+    <style name="CustomTitleTextAppearance">
+        <item name="android:textSize">23sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <!--
+    1.淡入淡出效果:(R.anim.fade, R.anim.hold)
+    2.放大淡出效果(R.anim.my_scale_action,R.anim.my_alpha_action)
+    3.转动淡出效果1(R.anim.scale_rotate,R.anim.my_alpha_action);
+    4.转动淡出效果2(R.anim.scale_translate_rotate,.anim.my_alpha_action);
+    5.左上角展开淡出效果(R.anim.scale_translate,R.anim.my_alpha_action);
+    6.压缩变小淡出效果(R.anim.hyperspace_in,R.anim.hyperspace_out);
+    7.右往左推出效果(R.anim.push_left_in,R.anim.push_left_out);
+    8.下往上推出效果(R.anim.push_up_in,R.anim.push_up_out);
+    9.左右交错效果(R.anim.slide_left,R.anim.slide_right);
+    10.放大淡出效果(R.anim.wave_scale,R.anim.my_alpha_action);
+    11.缩小效果(R.anim.zoom_enter,R.anim.zoom_exit);
+    12.上下交错效果(R.anim.slide_up_in,R.anim.slide_down_out);
+    13.
+    -->
+</resources>

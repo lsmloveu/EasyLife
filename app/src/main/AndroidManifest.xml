@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="yt.com.easylife">
+
+    <uses-permission android:name="android.permission.READ_LOGS" />
+    <!-- protection level is dangerous, need request runtime permission -->
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.SEND_SMS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+
+    <!-- 友盟分享登录需要权限 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!--android悬浮窗相关权限-->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+    <application
+        tools:replace="android:allowBackup"
+        android:name=".base.App"
+        android:allowBackup="false"
+        android:largeHeap="true"
+        android:persistent="true"
+        android:supportsRtl="true"
+        android:icon="@mipmap/lunchicon"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/lunchicon"
+        android:theme="@style/AppTheme">
+
+        <!-- 阿里热修复 -->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24781421-1" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="dcc25cb63ebe19267f4a55256b9d49f0" />
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCTVpbP5NTDRJil9PBU5LKlxGiguBMdLhlBAD7VN+Xn0c53gAoGkut36D2AzoYH9DF/IKOXqQq5JTeIoY6DS3q+aDHoVCGA4NNPaIr6jsVvc9iAjMvxMQFJdRPu+Ybsx3zZgqDrBK1GeslBhee1Ln5/VKPWf1ODF8cLuevyYgPhVuQRQG/slTDSQ8cqvCHkc/yYOKyJZNC6okAFVBeUp05+upTUeJ7n6wh58V0shrtIQi6xv5Je/xcLnXWSWVhEEqdLYk4WZNMCfMm162YKjiDAPH+jriJMiBX5Ui2Dm7NdSQS41wNpCLdJLBoMGNgZ99bL3sTkLSEW/UAXlIEJN/7pAgMBAAECggEBAIuT2vkFWf3GTSnimY6CvS7GmyuuVgUtt6TZW6zX8IelPYf9lwHVSxZjv2f3vgdo8T7yp6ez70GoHSzlh8Gfzp70zFrA4KBb3DL84bQtbqJ/x1k4iLdr6kExlXmtj4FeFktkMZeS7ae4CFJ3TSNZ8WIkx7UbF/03mEvmjLwo2G4uVlZzJutGHzDpIQPIPuQ3Xhc2yIOh9cuIT42SlhN9uzQR1I6qY8xgwnRtl1gq8GyT/qcqMMlf8lpUDpTY5ICwDksW7gYkOIK228vhDGPi/KXckpPuzjcUJdvWfK7LRsNI2WB+3qNQk+YFv3MksyQlPnCGVG0tb0b9zDZ18QMlR6UCgYEA0t+nL35cVAICMUI976/62V1oQav7tfemXca3qQ6YLSQCgD2PmDGLdv+KYWAkK2sisGCQqrx34VpnztcIexZyrSCqu0G2MaaKd2O+Gur1jovEOarKYI+uEmdR/o566kjDfzJRLsrXayupUGQnWBcwUExEc6KzIX+Y7QXv02mdHycCgYEAst5CTflel/tXDmsdzRTRIzPd47+POTG8yZdkFlMDMLPRIJtq1ib+LLwmPT3Ukzjg/HV5Rjf/ZR5CRwdJhM/S8Cm21LSiXVxci8PPRWNYfdk0xqLVSpbJhloCB09heZEVC6ICGbNFOHouYVSzMMOnKrRpcGbUsLSLO1qzXzq6u28CgYEAoOW/tfBPWFYUACvQAFOhLjskMn+cVpK4YPMf7aFSIZdJRTozl2euR0Th/DyUPIDJfhSgLXYSbmNBs8PFF83gABNd0fVoo+ez3TbAtd8zL+ma9nlHY3gd1LL7ECT8ykhsyl/FK9PfnEk7LjjNAFzpI0ueKzEoRtYKBEg0XnZGSZ8CgYBKQVjXVAoAIDig5LkndVfpPFQGg3Tq8ooESpQjbGzroArWdY7hvqhQW/+n9u4z/C3ywLYK/55IFUrAf/b2auyQBVFAdojdJ0XIRA7dKIQJIs31FI5le7nHy8AB1uOJe0B4ZtZmYvT+oEJ255nIScExSlpnblknzpvqlRnYE+KHgwKBgCG6A6inyNfcToha1ZmeCRMpSZwyUFc3W6VjVdYGpdGiEgxSC9nVeLg+QhBOeLWTGMd+dnAiBQ8if4PyQRIbvjjoRAizYGmZL3S9j1HpnFXSjeapHjxfvQqhkUicV/PFFRg9Sbb0d4kHNjutAEo9g+0BC9Jm+J69qy1JjycFAO88" />
+
+        <activity android:name=".ready.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".main.MainActivity" />
+        <!-- 微信 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 新浪微博 -->
+        <activity
+            android:name=".wbapi.WBShareActivity"
+            android:configChanges="keyboardHidden|orientation"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+        <!-- qq精简版 -->
+        <activity
+            android:name="com.umeng.qq.tencent.AuthActivity"
+            android:launchMode="singleTask"
+            android:noHistory="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!-- 这里的scheme是qq分享要用的，100424468为自己申请的appid，真实项目中需要替换 -->
+                <data android:scheme="tencent100424468" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.umeng.qq.tencent.AssistActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <!-- 分享编辑页 -->
+        <activity
+            android:name="com.umeng.socialize.editorpage.ShareActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.UMDefault" />
+
+        <meta-data
+            android:name="UMENG_APPKEY"
+            android:value="5a7aa005f29d9837250000b0"></meta-data>
+
+        <activity android:name=".ready.LoginActivity"></activity>
+    </application>
+
+</manifest>
