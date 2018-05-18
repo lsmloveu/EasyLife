@@ -19,4 +19,8 @@ public class Constant {
 
     public static String baseUrl="http://118.126.110.226:8081/";
 
+    public static String baseYiYanUrl="https://v1.hitokoto.cn";
+
+
+
 }

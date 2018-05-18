@@ -1,26 +1,31 @@
 package yt.com.easylife.ready;
 
 import android.Manifest;
-import android.os.Bundle;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.blankj.utilcode.util.ActivityUtils;
 import com.blankj.utilcode.util.LogUtils;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
-import java.util.Timer;
 import java.util.concurrent.TimeUnit;
 
-import butterknife.ButterKnife;
 import butterknife.InjectView;
 import butterknife.OnClick;
 import io.reactivex.Observable;
+import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
+import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
 import yt.com.easylife.R;
+import yt.com.easylife.bean.YiYanBeen;
+import yt.com.easylife.common.Api;
 import yt.com.easylife.common.ChangeSkinManager;
+import yt.com.easylife.common.Constant;
+import yt.com.easylife.widget.VerticalTextView;
 import yt.com.lsmlibrary.base.BaseActivity;
+import yt.com.lsmlibrary.net.HttpManager;
+import yt.com.lsmlibrary.net.RxHelper;
 
 /**
  * author  : LSM
@@ -35,10 +40,10 @@ public class SplashActivity extends BaseActivity {
 
     @InjectView(R.id.im_logo)
     ImageView imLogo;
-    @InjectView(R.id.tv_one)
-    TextView tvOne;
-    private int mTime=3;
-    private int ttfNum=0;
+    @InjectView(R.id.vt_show)
+    VerticalTextView vtShow;
+    private int mTime = 5;
+    private int ttfNum = 0;
 
     @Override
     protected int getLayout() {
@@ -52,7 +57,7 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void initView() {
-
+        getYiYanApi();
     }
 
     @Override
@@ -81,33 +86,6 @@ public class SplashActivity extends BaseActivity {
                         doOthers();
                     }
                 });
-//        rxPermissions
-//                .requestEach(Manifest.permission.ACCESS_FINE_LOCATION,
-//                        Manifest.permission.WRITE_EXTERNAL_STORAGE,
-//                        Manifest.permission.READ_CALENDAR,
-//                        Manifest.permission.READ_CALL_LOG,
-//                        Manifest.permission.READ_CONTACTS,
-//                        Manifest.permission.READ_PHONE_STATE,
-//                        Manifest.permission.READ_SMS,
-//                        Manifest.permission.RECORD_AUDIO,
-//                        Manifest.permission.CAMERA,
-//                        Manifest.permission.CALL_PHONE,
-//                        Manifest.permission.SEND_SMS)
-//                .subscribe(new Consumer<Permission>() {
-//                    @Override
-//                    public void accept(Permission permission) throws Exception {
-//                        if (permission.granted) {
-//                            // 用户已经同意该权限
-//                            LogUtils.iTag(getTAG(), permission.name + " is granted.");
-//                        } else if (permission.shouldShowRequestPermissionRationale) {
-//                            // 用户拒绝了该权限，没有选中『不再询问』（Never ask again）,那么下次再次启动时，还会提示请求权限的对话框
-//                            LogUtils.iTag(getTAG(), permission.name + " is denied. More info should be provided.");
-//                        } else {
-//                            // 用户拒绝了该权限，并且选中『不再询问』
-//                            LogUtils.iTag(getTAG(), permission.name + " is denied.");
-//                        }
-//                    }
-//                });
     }
 
 
@@ -115,14 +93,46 @@ public class SplashActivity extends BaseActivity {
         //检查更新
 
         //启动跳转
-        Observable.timer(3, TimeUnit.SECONDS)
+        Observable.timer(mTime, TimeUnit.SECONDS)
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<Long>() {
                     @Override
                     public void accept(Long aLong) throws Exception {
-                            ActivityUtils.startActivity(SplashActivity.this,LoginActivity.class);
-                            finish();
-                        ActivityUtils.finishToActivity(LoginActivity.class,true);
+                        ActivityUtils.startActivity(SplashActivity.this, LoginActivity.class);
+                        finish();
+                        ActivityUtils.finishToActivity(LoginActivity.class, true);
+                    }
+                });
+    }
+
+    public void getYiYanApi() {
+        HttpManager
+                .getInstance()
+                .getApiService(Api.class, Constant.baseYiYanUrl)
+                .getYiYan("json","utf-8")
+                .compose(RxHelper.<YiYanBeen>rxSchedulerHelper())
+                .subscribe(new Observer<YiYanBeen>() {
+                    @Override
+                    public void onSubscribe(@NonNull Disposable d) {
+
+                    }
+
+                    @Override
+                    public void onNext(@NonNull YiYanBeen yiYan) {
+                        vtShow.setText(yiYan.getHitokoto());
+                        vtShow.postInvalidate();
+                        LogUtils.iTag("http",yiYan);
+                    }
+
+                    @Override
+                    public void onError(@NonNull Throwable e) {
+                        vtShow.setText(getResources().getString(R.string.yiyan));
+                        LogUtils.iTag("http",e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+
                     }
                 });
     }
@@ -130,9 +140,9 @@ public class SplashActivity extends BaseActivity {
     @OnClick(R.id.im_logo)
     public void onClick() {
         ttfNum++;
-        if (ttfNum<34) {
+        if (ttfNum < 34) {
             ChangeSkinManager.getInstance().fontsChange(ttfNum + "");
-            LogUtils.iTag(getTAG(), "当前所用字体："+ttfNum);
+            LogUtils.iTag(getTAG(), "当前所用字体：" + ttfNum);
         }
     }
 }

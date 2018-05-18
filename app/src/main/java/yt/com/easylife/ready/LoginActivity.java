@@ -10,13 +10,14 @@ import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import io.reactivex.Observer;
 import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import yt.com.easylife.R;
-import yt.com.easylife.bean.DriverBean;
+import yt.com.easylife.bean.MusicBean;
 import yt.com.easylife.common.Api;
 import yt.com.easylife.common.Constant;
 import yt.com.easylife.main.MainActivity;
@@ -91,19 +92,24 @@ public class LoginActivity extends BaseActivity {
     }
 
     public void requestInterface(View view) {
+        Map<String,String> paramMap = new HashMap<>();
+        paramMap.put("filter","name");
+        paramMap.put("input","烟花易冷");
+        paramMap.put("page","1");
+        paramMap.put("type","qq");
         HttpManager
                 .getInstance()
-                .getApiService(Api.class,Constant.baseUrl)
-                .toLogin("18871987520","123456","863513036641247")
-                .compose(RxHelper.<DriverBean>rxSchedulerHelper())
-                .subscribe(new Observer<DriverBean>() {
+                .getApiService(Api.class,"http://music.sonimei.cn")
+                .getMusic(paramMap)
+                .compose(RxHelper.<MusicBean>rxSchedulerHelper())
+                .subscribe(new Observer<MusicBean>() {
                     @Override
                     public void onSubscribe(@NonNull Disposable d) {
 
                     }
 
                     @Override
-                    public void onNext(@NonNull DriverBean driverBean) {
+                    public void onNext(@NonNull MusicBean driverBean) {
 
                     }
 

@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">撩心</string>
     <!--启动页-->
-    <string name="app_style">明天，不是你想要就能有的</string>
+    <string name="app_style">明天，不是你想要就能有的明天</string>
 
     <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Sed posuere interdum sem. Quisque ligula eros ullamcorper quis, lacinia quis facilisis sed sapien. Mauris varius diam vitae arcu. Sed arcu lectus auctor vitae, consectetuer et venenatis eget velit. Sed augue orci, lacinia eu tincidunt et eleifend nec lacus. Donec ultricies nisl ut felis, suspendisse potenti. Lorem ipsum ligula ut hendrerit mollis, ipsum erat vehicula risus, eu suscipit sem libero nec erat. Aliquam erat volutpat. Sed congue augue vitae neque. Nulla consectetuer porttitor pede. Fusce purus morbi tortor magna condimentum vel, placerat id blandit sit amet tortor.
 
@@ -19,4 +19,7 @@ Nam molestie nec tortor. Donec placerat leo sit amet velit. Vestibulum id justo 
 
 Vivamus placerat lacus vel vehicula scelerisque, dui enim adipiscing lacus sit amet sagittis, libero enim vitae mi. In neque magna posuere, euismod ac tincidunt tempor est. Ut suscipit nisi eu purus. Proin ut pede mauris eget ipsum. Integer vel quam nunc commodo consequat. Integer ac eros eu tellus dignissim viverra. Maecenas erat aliquam erat volutpat. Ut venenatis ipsum quis turpis. Integer cursus scelerisque lorem. Sed nec mauris id quam blandit consequat. Cras nibh mi hendrerit vitae, dapibus et aliquam et magna. Nulla vitae elit. Mauris consectetuer odio vitae augue.</string>
     <string name="title_activity_custom_color">CustomColorActivity</string>
+
+
+    <string name="yiyan">你喜欢浪,我就血染战旗争天下,你喜欢稳,我就放弃戎马给你家</string>
 </resources>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout android:id="@+id/activity_main"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:vt="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg"
-    >
+    android:background="@drawable/shape_back">
     <ImageView
         android:id="@+id/im_logo"
         android:layout_width="wrap_content"
@@ -13,16 +13,17 @@
         android:src="@drawable/love1"
         android:layout_marginTop="@dimen/splash_top"
         />
-    <TextView
-        android:id="@+id/tv_one"
+    <yt.com.easylife.widget.VerticalTextView
+        android:id="@+id/vt_show"
         android:layout_below="@+id/im_logo"
-        android:layout_marginTop="@dimen/splash_text"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/large_text"
-        android:text="@string/app_style"
-        android:textColor="@color/black"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="80dp"
+        android:layout_marginTop="20dp"
+        vt:text="你喜欢浪,我就血染战旗争天下,你喜欢稳,我就放弃戎马给你家"
+        vt:size="15sp"
+        vt:color="@color/white"
+        vt:font="fonts/33.ttf"
         />
 </RelativeLayout>
 

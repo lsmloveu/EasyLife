@@ -26,6 +26,13 @@
         <item name="android:textSize">23sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <declare-styleable name="VerticalTextView">
+        <attr name="text" format="string"></attr>
+        <attr name="size" format="dimension"></attr>
+        <attr name="color" format="color"></attr>
+        <attr name="font" format="string"></attr>
+    </declare-styleable>
     <!--
     1.淡入淡出效果:(R.anim.fade, R.anim.hold)
     2.放大淡出效果(R.anim.my_scale_action,R.anim.my_alpha_action)

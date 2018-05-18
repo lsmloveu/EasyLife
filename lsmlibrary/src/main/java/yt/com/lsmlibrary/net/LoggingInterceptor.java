@@ -25,8 +25,11 @@ public class LoggingInterceptor implements Interceptor {
     @Override
     public Response intercept(Chain chain) throws IOException {
         //这个chain里面包含了request和response，所以你要什么都可以从这里拿
-        Request request = chain.request();
-
+        Request request = chain.request()
+                .newBuilder()
+                .addHeader("Content-Type","application/x-www-form-urlencoded; charset=UTF-8")
+                .addHeader("X-Requested-With","XMLHttpRequest")
+                .build();
         long t1 = System.nanoTime();//请求发起的时间
         LogUtils.iTag("http",String.format("发送请求 %s",request.url()));
         Response response = chain.proceed(request);

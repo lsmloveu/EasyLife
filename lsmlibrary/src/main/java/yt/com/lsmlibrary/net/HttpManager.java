@@ -25,20 +25,20 @@ public class HttpManager {
     private static CacheInterceptor cacheInterceptor = new CacheInterceptor();
     private static OkHttpClient okHttpClient = new OkHttpClient.Builder()
             //SSL证书
-            .sslSocketFactory(TrustManager.getUnsafeOkHttpClient())
-            .hostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER)
+//            .sslSocketFactory(TrustManager.getUnsafeOkHttpClient())
+//            .hostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.ALLOW_ALL_HOSTNAME_VERIFIER)
             //打印日志
             .addInterceptor(interceptor)
             //设置Cache拦截器
-            .addNetworkInterceptor(cacheInterceptor)
-            .addInterceptor(cacheInterceptor)
-            .cache(HttpCache.getCache())
+//            .addNetworkInterceptor(cacheInterceptor)
+//            .addInterceptor(cacheInterceptor)
+//            .cache(HttpCache.getCache())
             //time out
             .connectTimeout(TIMEOUT_CONNECTION, TimeUnit.SECONDS)
             .readTimeout(TIMEOUT_READ, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT_READ, TimeUnit.SECONDS)
             //失败重连
-            .retryOnConnectionFailure(true)
+//            .retryOnConnectionFailure(true)
             .build();
     private HttpManager(){
 

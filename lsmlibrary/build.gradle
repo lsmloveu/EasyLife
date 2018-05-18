@@ -88,6 +88,10 @@ dependencies {
     compile 'com.contrarywind:Android-PickerView:4.1.2'
     //banner
     compile 'com.youth.banner:banner:1.4.10'
+    //动画
+//    compile 'com.airbnb.android:lottie:2.5.1'
+    //拍照，打开本地文件
+    compile 'com.jph.takephoto:takephoto_library:4.0.3'
 
     testCompile 'junit:junit:4.12'
 }
